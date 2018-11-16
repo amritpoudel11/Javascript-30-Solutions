@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+      console.log("hello world!")
+    // Interpolated
+      console.log("I am a %s boy", "good");
+    // Styled
+      console.log("%c this is huge", "font-size: 30px")
+    // warning!
+      console.warn("check again!");
+    // Error :|
+      console.error("you have an error");
+    // Info
+      console.info("sun rises from the east")
+    // Testing
+      let thats = document.querySelector("p");
+      console.dir(thats);
+      console.assert(thats.innerHTML == "prank", "This is breakingdown");
+    // clearing
+   ///////////// console.clear()
+    // Viewing DOM Elements
+    console.log(thats);
+    console.dir(thats);
+    // Grouping together
+    console.groupCollapsed("myConsoleGroup");
+      console.log(thats.innerHtml);
+      console.log(thats);
+      console.log(thats.nodeName);
+    console.groupEnd("myConsoleGroup")
+    // counting
+    console.count("me");
+    console.count("me");
+    console.count("me");
+    console.count("me");
+    // timing
+    console.time("going on");
+    fetch("https://api.github.com/users/amritpoudel11")
+    .then(data => data.json())
+    .then(data => {
+      console.timeEnd("going on");
+      console.log(data);
+    });
+    
+
+  </script>
+</body>
+</html>
