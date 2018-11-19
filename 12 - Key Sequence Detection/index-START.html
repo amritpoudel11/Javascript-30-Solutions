@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+  <h1>Sshhhh the secret type code for magic is "amrit"</h1>
+  
+<script>
+  const body = document.querySelector("body");
+     let keyArr = [];
+    let secretcode = "amrit";
+  window.addEventListener("keyup", (e)=>{  
+     keyArr.push(e.key);
+    let secretArr = keyArr.slice(-secretcode.length);
+    let joinedSecretArr = secretArr.join("");
+    if(joinedSecretArr == secretcode){
+     body.style.backgroundImage = "url(https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ab871c0ab223c15ee08a73f81d2d2770&auto=format&fit=crop&w=967&q=80)";
+     }else{
+      body.style.backgroundImage = "none";
+     }
+    
+  });
+ 
+</script>
+</body>
+</html>
