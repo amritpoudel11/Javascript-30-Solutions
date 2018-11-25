@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Shadow</title>
+</head>
+<body>
+
+  <div class="hero">
+    <h1 contenteditable>🔥WOAH!</h1>
+  </div>
+
+  <style>
+  html {
+    color: black;
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+
+  h1 {
+    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+    font-size: 100px;
+  }
+  </style>
+
+<script> 
+  const hero = document.querySelector(".hero");
+  const header = hero.querySelector("h1");
+  const distance = 400;
+
+  hero.addEventListener("mousemove", function(e){
+    let heroWidth= hero.offsetWidth;
+    let heroHeight = hero.offsetHeight;
+    let x = e.offsetX;
+    let y = e.offsetY;
+    if(this !== e.target){
+        x = x + e.target.offsetLeft;
+        y = y + e.target.offsetTop;
+    }
+    let a = heroWidth*distance;
+    let b = heroHeight*distance;
+    let halfD = distance/2;
+
+    let xDistance = Math.round(x/heroWidth*distance) - halfD;
+    let yDistance = Math.round(y/heroHeight*distance) - halfD;
+    //console.log(x, y, xDistance, yDistance);
+   
+    header.style.textShadow = `${xDistance}px ${yDistance}px 0 rgba(250,0,0,1), ${xDistance * -1}px ${yDistance}px 0 rgba(0, 250,0,1), ${yDistance}px ${xDistance*-1}px 0 rgba(95,20,200,1), ${yDistance*-1}px ${xDistance}px 0 rgba(220,250,90,1)`;
+    
+  });
+
+</script>
+</body>
+</html>
